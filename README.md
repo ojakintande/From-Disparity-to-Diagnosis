@@ -1,48 +1,47 @@
-## Diagnostic Fairness: Auditing Bias Origins via Group-Level Influence Functions
+# Diagnostic Fairness: Auditing Bias Origins via Group-Level Influence Functions
 
-This repository contains the implementation, diagnostic framework, and experimental results for the paper: "Algorithmic fairness interventions often focus on quantifying and mitigating aggregate outcome disparities, yet they lack explanatory power for how these disparities arise..."
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Status: Research Prototype](https://img.shields.io/badge/Status-Active%20Research-blue)](https://github.com/ojakintande/LLM_Who_Audit_Reviewers)
+
+This repository provides the implementation of a novel diagnostic framework that bridges the gap between outcome-based fairness auditing and training-data-centric interpretability. By utilizing **group-level influence functions**, we move beyond documenting bias to diagnosing its origins.
+
+---
 
 ## 1. Abstract
-Algorithmic fairness interventions often focus on quantifying and mitigating aggregate outcome disparities, yet they lack explanatory power for how these disparities arise during model training. This work bridges the gap between outcome-based fairness auditing and training-data-centric interpretability by introducing a diagnostic framework grounded in group-level influence functions.
+Algorithmic fairness interventions often focus on quantifying aggregate outcome disparities, yet they lack explanatory power regarding how these disparities emerge during model training. This work introduces a diagnostic framework that decomposes total model influence into two novel components:
 
-We decompose total influence into two novel components:
+*   **Self-Influence (Intra-group):** The impact of group-specific data on the group’s own predictions.
+*   **Between-Influence (Inter-group):** The impact of disparate groups on one another.
 
-Self-Influence (Intra-group): Assessing the impact of group-specific data on the group’s own predictions.
-
-Between-Influence (Inter-group): Assessing the impact of disparate groups on one another.
+This decomposition enables practitioners to move beyond treating symptoms to addressing the root causes of bias in high-stakes predictive systems.
 
 ## 2. Key Contributions
-Novel Failure Modes: Identification of stereotyping (driven by inter-group influence) and under-learning (caused by insufficient self-influence).
-
-Theoretical Linkage: Linking influence components to violations of standard group fairness criteria.
-
-Diagnostic Pipeline: An end-to-end audit framework that moves beyond documenting what disparities exist to diagnosing how they emerge.
-
-Empirical Validation: Case study on the COMPAS recidivism dataset, challenging conventional inter-group debiasing paradigms.
+*   **Identification of Failure Modes:** We formally identify **Stereotyping** (driven by excessive inter-group influence) and **Under-learning** (caused by insufficient self-influence).
+*   **Theoretical Grounding:** We establish a rigorous link between influence components and violations of standard group fairness criteria.
+*   **End-to-End Diagnostic Pipeline:** A modular framework to audit model origins, followed by targeted data reweighting and SHAP-based residual bias explanation.
+*   **Empirical Case Study:** We validate our approach using the **COMPAS recidivism dataset**, challenging conventional paradigms that rely solely on inter-group debiasing.
 
 ## 3. Repository Structure
-/scripts: R implementation of the influence function decomposition and SHAP-based residual bias analysis.
-
-/data: Pre-processed datasets (e.g., COMPAS) and experimental logs.
-
-/results: Aggregated metrics and visualization outputs.
+*   `/scripts`: R scripts for influence function decomposition and SHAP-based residual analysis.
+*   `/data`: Anonymized experimental logs and processed datasets.
+*   `/results`: Aggregated performance metrics and visualization outputs.
 
 ## 4. Quick Start
 To replicate the diagnostic framework:
 
-Dependencies: Ensure R is installed with tidyverse, SHAPforxgboost, and influenceR (or your relevant libraries).
-
-Configuration: Set the data path in config.R.
-
-Run Pipeline: Execute the primary audit script:
-
-source("scripts/audit_pipeline.R")
-
+1.  **Environment:** Ensure R (v4.x) is installed.
+2.  **Dependencies:** Install the required ecosystem:
+    ```r
+    install.packages(c("tidyverse", "SHAPforxgboost", "influenceR"))
+    ```
+3.  **Setup:** Define your data paths within `config.R`.
+4.  **Audit:** Run the primary diagnostic pipeline:
+    ```r
+    source("scripts/audit_pipeline.R")
+    ```
 
 ## 5. Citation
-If you find this research useful for your auditing work, please cite:
-> [Awaiting DOI/Publication info]
+If this framework contributes to your research, please cite our work:
 
 ## 6. License
-This project is licensed under the MIT License.
-
+This project is licensed under the **MIT License**. See the `LICENSE` file for more details.

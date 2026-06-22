@@ -1,12 +1,56 @@
-Algorithmic fairness interventions often focus on quantifying and mitigating aggregate outcome disparities, yet they lack explanatory
-power for how these disparities arise during model training. This work bridges the gap between outcome-based fairness auditing
-and training-data-centric interpretability by introducing a diagnostic framework grounded in group-level influence functions. We
-decompose the total influence on a demographic group’s predictions into two novel components: self-influence (intra-group) and
-between-influence (inter-group). This decomposition reveals two critical failure modes: stereotyping, driven by disproportionate interinfluence from perceived advantaged groups, and under-learning, caused by insufficient self-influence within a perceived disadvantaged
-group. We theoretically link these components to violations of standard group fairness criteria. Through an experimental case study on
-the COMPAS recidivism dataset, we demonstrate that the most severe fairness violations are frequently driven by strong intra-group
-influence. This finding challenges the conventional inter-group debiasing paradigms. Following influence-based diagnosis and targeted
-data reweighting, we employ SHAP to provide interpretable, feature-level explanations of residual bias. This end-to-end pipeline,
-diagnosing disparity origins via self- and between-influence, followed by targeted mitigation via valid statistical tests and explainable
-audit, moves beyond documenting what disparities exist to diagnosing or auditing how they emerge, enabling more precise and
-effective bias interventions in high-stakes domains
+Diagnostic Fairness: Auditing Bias Origins via Group-Level Influence Functions
+This repository contains the implementation, diagnostic framework, and experimental results for the paper: "Algorithmic fairness interventions often focus on quantifying and mitigating aggregate outcome disparities, yet they lack explanatory power for how these disparities arise..."
+
+1. Abstract
+Algorithmic fairness interventions often focus on quantifying and mitigating aggregate outcome disparities, yet they lack explanatory power for how these disparities arise during model training. This work bridges the gap between outcome-based fairness auditing and training-data-centric interpretability by introducing a diagnostic framework grounded in group-level influence functions.
+
+We decompose total influence into two novel components:
+
+Self-Influence (Intra-group): Assessing the impact of group-specific data on the group’s own predictions.
+
+Between-Influence (Inter-group): Assessing the impact of disparate groups on one another.
+
+2. Key Contributions
+Novel Failure Modes: Identification of stereotyping (driven by inter-group influence) and under-learning (caused by insufficient self-influence).
+
+Theoretical Linkage: Linking influence components to violations of standard group fairness criteria.
+
+Diagnostic Pipeline: An end-to-end audit framework that moves beyond documenting what disparities exist to diagnosing how they emerge.
+
+Empirical Validation: Case study on the COMPAS recidivism dataset, challenging conventional inter-group debiasing paradigms.
+
+3. Repository Structure
+/scripts: R implementation of the influence function decomposition and SHAP-based residual bias analysis.
+
+/data: Pre-processed datasets (e.g., COMPAS) and experimental logs.
+
+/results: Aggregated metrics and visualization outputs.
+
+4. Quick Start
+To replicate the diagnostic framework:
+
+Dependencies: Ensure R is installed with tidyverse, SHAPforxgboost, and influenceR (or your relevant libraries).
+
+Configuration: Set the data path in config.R.
+
+Run Pipeline: Execute the primary audit script:
+
+source("scripts/audit_pipeline.R")
+
+
+## 5. Citation
+If you find this research useful for your auditing work, please cite:
+> [Awaiting DOI/Publication info]
+
+## 6. License
+This project is licensed under the MIT License.
+
+---
+
+### How to apply this to your GitHub:
+1.  **On GitHub:** Go to your repository `LLM_Who_Audit_Reviewers`.
+2.  **Add File:** Click "Add file" -> "Create new file".
+3.  **Name it:** `README.md`.
+4.  **Paste:** Copy the text above and save it.
+
+**Would you like me to include a section on the "SHAP-based residual bias" analysis

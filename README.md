@@ -1,5 +1,3 @@
-# Diagnostic Fairness: Auditing Bias Origins via Group-Level Influence Functions
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status: Research Prototype](https://img.shields.io/badge/Status-Active%20Research-blue)](https://github.com/ojakintande/LLM_Who_Audit_Reviewers)
 

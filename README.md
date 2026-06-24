@@ -41,7 +41,18 @@ To replicate the diagnostic framework:
     ```
 
 ## 5. Citation
-If this framework contributes to your research, please cite our work:
+If this framework contributes to your research, please cite our work: https://dl.acm.org/doi/10.1145/3805689.3806732
+
+@inproceedings{10.1145/3805689.3806732,
+author = {Akintande, Olalekan Joseph and Takhsha, Amirreza and Holm, Sune H and Feragen, Aasa and Bigdeli, Siavash},
+title = {Diagnosing Algorithmic Bias: A Group Influence Framework for Fairness Auditing},
+year = {2026},
+isbn = {9798400725968},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3805689.3806732},
+doi = {10.1145/3805689.3806732},booktitle = {Proceedings of the 2026 ACM Conference on Fairness, Accountability, and Transparency},
+pages = {81–105},numpages = {25},series = {FAccT '26}}
 
 ## 6. License
 This project is licensed under the **MIT License**. See the `LICENSE` file for more details.
